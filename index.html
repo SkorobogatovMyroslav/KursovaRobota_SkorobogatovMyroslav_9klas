@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Energy calculator</title>
+    <link rel="stylesheet" href="CSS_курсова9клас.css">
+</head>
+<body>
+    <h1>Калькулятор для підбору системи енергозабезпечення</h1>
+    <h2>Вкажіть тільки ті прилади, якими будете користуватися при відключенні електроенергії:</h2>
+
+    <section id="devices">
+        <div class="device" power="10">
+            <span>Лампочка (10 Вт)</span>
+             <select>
+                <option value="0">–</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+            </select>
+        </div>
+        
+        <div class="device" power="15">
+            <span>Смартфон (15 Вт)</span>
+             <select>
+                <option value="0">–</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+
+        <div class="device" power="150">
+            <span>Ноутбук (150 Вт)</span>
+             <select>
+                <option value="0">–</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+
+        <div class="device" power="160">
+            <span>Газовий котел (160 Вт)</span>
+            <select>
+                <option value="0">–</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+
+                <div class="device" power="200">
+            <span>Холодильник (200 Вт)</span>
+             <select>
+                <option value="0">–</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+
+        <div class="device" power="300">
+            <span>Електросушарка (300 Вт)</span>
+             <select>
+                <option value="0">–</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+
+        <div class="device" power="400">
+            <span>Мікрохвильова піч (400 Вт)</span>
+             <select>
+                <option value="0">–</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+
+        <div class="device" power="500">
+            <span>Мультиварка (500 Вт)</span>
+             <select>
+                <option value="0">–</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+
+        <div class="device" power="1000">
+            <span>Електрична плита (1000 Вт)</span>
+             <select>
+                <option value="0">–</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+
+        <div class="device" power="1500">
+            <span>Бойлер (1500 Вт)</span>
+             <select>
+                <option value="0">–</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+
+        <div class="device" power="1600">
+            <span>Праска (1600 Вт)</span>
+             <select>
+                <option value="0">–</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+
+        <div class="device" power="2000">
+            <span>Пральна машинка (2000 Вт)</span>
+             <select>
+                <option value="0">–</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+
+    <button id="calculate"><b>Порахувати</b></button>
+
+    <h2 id="result"><b>Загальна потужність: 0 Вт</b></h2>
+
+    <button id="recommend"><b>Запропонувати систему 🔋🔌</b></button>
+    
+
+    <script src="JavaScript_курсова9клас.js"></script>
+</body>
+</html>
