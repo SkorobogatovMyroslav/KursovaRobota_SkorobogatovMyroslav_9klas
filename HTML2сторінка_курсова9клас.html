@@ -12,11 +12,10 @@
 <div id="systems" class="systems-container"></div>
 
 <script>
-// Отримуємо значення ?power=ХХХ
+
 const urlParams = new URLSearchParams(window.location.search);
 const power = Number(urlParams.get("power"));
 
-// Масив з усіма твоми системами (приклад)
 const systems = [
     {
         min: 0, max: 599,
@@ -388,22 +387,17 @@ const systems = [
 
 
 
-// Пошук підходящої системи
 let result = systems.find(s => power >= s.min && power <= s.max);
 
-// Контейнер для віконець
 const container = document.getElementById("systems");
 
 if (result) {
     result.items.forEach(htmlBlock => {
-        // Створюємо елемент-картку з твого HTML
         let temp = document.createElement("div");
         temp.innerHTML = htmlBlock.trim();
 
-        // Знаходимо div.system-card всередині
         let card = temp.querySelector(".system-card");
 
-        // Додаємо текст у цю картку
         let info = document.createElement("p");
         info.innerHTML = `Підходить для навантаження: <b>${power} Вт</b>`;
         info.style.marginTop = "10px";
@@ -411,13 +405,11 @@ if (result) {
 
         card.appendChild(info);
 
-        // Додаємо картку на сторінку
         container.appendChild(card);
     });
 } else {
     container.innerHTML = "<p class='no-systems'>Підходящих систем не знайдено.</p>";
 }
-// ===== JS для кнопок "Докладніше" =====
 document.querySelectorAll(".Knipka").forEach(button => {
     button.addEventListener("click", () => {
         const card = button.closest(".system-card");
