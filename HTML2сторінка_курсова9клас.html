@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Recomended sistems</title>
+    <link rel="stylesheet" href="CSS2стрінка_курсова9клас.css">
+</head>
+<body>
+
+<h1 class="title">Рекомендовані системи енергозабезпечення</h1>
+
+<div id="systems" class="systems-container"></div>
+
+<script>
+// Отримуємо значення ?power=ХХХ
+const urlParams = new URLSearchParams(window.location.search);
+const power = Number(urlParams.get("power"));
+
+// Масив з усіма твоми системами (приклад)
+const systems = [
+    {
+        min: 0, max: 599,
+        items: [
+            `
+            <div class="system-card">
+                <h3>Зарядна станція EcoFlow RIVER Pro 600Вт</h3>
+                <img src="https://viatec.ua/upload/images/prod/EcoFlow_RIVER_Pro.webp" alt="600 Вт" />
+                <button class="Knipka">Докладніше про систему</button>
+                <div class="full-info hidden">
+                    <p>Повна назва: EcoFlow RIVER Pro 600Вт</p>
+                    <p>Потужність: 600 Вт</p>
+                    <p>Ємність, Вт*год: 720</p>
+                    <p>Потужність заряджання від розетки AC 230В, 660 Вт</p>
+                    <p>Потужність зарядки від сонячної панелі, 200 Вт</p>
+                    <p>Форма вихідного сигналу: чиста синусоїда</p>
+                    <p>Підключення пристроїв: Розетка AC 230В(2), USB-A(3), USB-C(1), DC(2)</p>
+                    <p>Цикли зарядки: 800</p>
+                    <p>Функція ДБЖ: є</p>
+                    <p>Дисплей: є</p>
+                    <p>Ліхтарик: є</p>
+                    <p>Розміри: 289x180x235 мм</p>
+                    <p>Вага: 7,6 кг</p>
+                    <p>Де купити: <a href="https://hotline.ua/ua/mobile-zaryadnye-stancii/ecoflow-river-pro-efriver600pro-eu/" target="_blank">Магазин</a></p>
+                </div>
+            </div>
+            `,
+            `
+            <div class="system-card">
+                <h3>Зарядна станція EcoFlow RIVER 2 PRO 800Вт</h3>
+                <img src="https://viatec.ua/upload/images/prod/2024-08/RIVER2pro.webp" alt="800 Вт" />
+                <button class="Knipka">Докладніше про систему</button>
+                <div class="full-info hidden">
+                    <p>Повна назва: EcoFlow RIVER Pro 600Вт</p>
+                    <p>Потужність: 800 Вт</p>
+                    <p>Ємність, Вт*год: 768</p>
+                    <p>Потужність заряджання від розетки AC 230В, 920 Вт</p>
+                    <p>Потужність зарядки від сонячної панелі, 220 Вт</p>
+                    <p>Форма вихідного сигналу: чиста синусоїда</p>
+                    <p>Підключення пристроїв: Розетка AC 230В(3), USB-A(3), USB-C(1), DC(2)</p>
+                    <p>Цикли зарядки: 3000</p>
+                    <p>Функція ДБЖ: є</p>
+                    <p>Дисплей: є</p>
+                    <p>Ліхтарик: немає</p>
+                    <p>Розміри: 270x260x226 мм</p>
+                    <p>Вага: 7,8 кг</p>
+                    <p>Де купити: <a href="https://hotline.ua/ua/mobile-zaryadnye-stancii/ecoflow-river-2-pro/" target="_blank">Магазин</a></p>
+                </div>
+            </div>
+            `
+        ]
+    },
+    {
+        min: 600, max: 799,
+        items: [
+            `
+            <div class="system-card">
+                <h3>Зарядна станція EcoFlow RIVER 2 PRO 800Вт</h3>
+                <img src="https://viatec.ua/upload/images/prod/2024-08/RIVER2pro.webp" alt="800 Вт" />
+                <button class="Knipka">Докладніше про систему</button>
+                <div class="full-info hidden">
+                    <p>Повна назва: EcoFlow RIVER 2 PRO 800Вт</p>
+                    <p>Потужність: 800 Вт</p>
+                    <p>Ємність, Вт*год: 768</p>
+                    <p>Потужність заряджання від розетки AC 230В, 920 Вт</p>
+                    <p>Потужність зарядки від сонячної панелі, 220 Вт</p>
+                    <p>Форма вихідного сигналу: чиста синусоїда</p>
+                    <p>Підключення пристроїв: Розетка AC 230В(3), USB-A(3), USB-C(1)</p>
+                    <p>Цикли зарядки: 3000</p>
+                    <p>Функція ДБЖ: є</p>
+                    <p>Дисплей: є</p>
+                    <p>Ліхтарик: немає</p>
+                    <p>Розміри: 270x260x226 мм</p>
+                    <p>Вага: 7,8 кг</p>
+                    <p>Де купити: <a href="https://hotline.ua/ua/mobile-zaryadnye-stancii/ecoflow-river-2-pro/" target="_blank">Магазин</a></p>
+                </div>
+            </div>
+            `,
+            `
+            <div class="system-card">
+                <h3>Зарядна станція 2Е Snagha PRO 1200Вт</h3>
+                <img src="https://i.moyo.ua/img/products/6151/72_600.jpg?1732619334" alt="1200 Вт" />
+                <button class="Knipka">Докладніше про систему</button>
+                <div class="full-info hidden">
+                    <p>Повна назва: 2Е Snagha PRO 1200Вт</p>
+                    <p>Потужність: 1200 Вт</p>
+                    <p>Ємність, Вт*год: 1050</p>
+                    <p>Потужність заряджання від розетки AC 230В, 1000 Вт</p>
+                    <p>Потужність зарядки від сонячної панелі, 300 Вт</p>
+                    <p>Форма вихідного сигналу: чиста синусоїда</p>
+                    <p>Підключення пристроїв: Розетка AC 230В(2), USB-A(3), USB-C(2)</p>
+                    <p>Цикли зарядки: 2000</p>
+                    <p>Функція ДБЖ: є</p>
+                    <p>Дисплей: є</p>
+                    <p>Ліхтарик: є</p>
+                    <p>Розміри: 366x235x267 мм</p>
+                    <p>Вага: 12 кг</p>
+                    <p>Де купити: <a href="https://hotline.ua/ua/mobile-zaryadnye-stancii/2e-snagha-1200w-1050wh-2e-pps1210/" target="_blank">Магазин</a></p>
+                </div>
+            </div>
+            `
+        ]
+    },
+    {
+        min: 800, max: 1199,
+        items: [
+            `
+            <div class="system-card">
+                <h3>Зарядна станція 2Е Snagha PRO 1200Вт</h3>
+                <img src="https://i.moyo.ua/img/products/6151/72_600.jpg?1732619334" alt="1200 Вт" />
+                <button class="Knipka">Докладніше про систему</button>
+                <div class="full-info hidden">
+                    <p>Повна назва: 2Е Snagha PRO 1200Вт</p>
+                    <p>Потужність: 1200 Вт</p>
+                    <p>Ємність, Вт*год: 1050</p>
+                    <p>Потужність заряджання від розетки AC 230В, 1000 Вт</p>
+                    <p>Потужність зарядки від сонячної панелі, 300 Вт</p>
+                    <p>Форма вихідного сигналу: чиста синусоїда</p>
+                    <p>Підключення пристроїв: Розетка AC 230В(2), USB-A(3), USB-C(2)</p>
+                    <p>Цикли зарядки: 2000</p>
+                    <p>Функція ДБЖ: є</p>
+                    <p>Дисплей: є</p>
+                    <p>Ліхтарик: є</p>
+                    <p>Розміри: 366x235x267 мм</p>
+                    <p>Вага: 12 кг</p>
+                    <p>Де купити: <a href="https://hotline.ua/ua/mobile-zaryadnye-stancii/2e-snagha-1200w-1050wh-2e-pps1210/" target="_blank">Магазин</a></p>
+                </div>
+            </div>
+            `,
+            `
+            <div class="system-card">
+                <h3>Зарядна станція EcoFlow DELTA 3 EU-Version</h3>
+                <img src="https://hotline.ua/img/tx/507/5070515245.jpg" alt="1800 Вт" />
+                <button class="Knipka">Докладніше про систему</button>
+                <div class="full-info hidden">
+                    <p>Повна назва: EcoFlow DELTA 3 EU-Version</p>
+                    <p>Потужність: 1800 Вт</p>
+                    <p>Ємність, Вт*год: 1024</p>
+                    <p>Потужність заряджання від розетки AC 230В, 1500 Вт</p>
+                    <p>Потужність зарядки від сонячної панелі, 500 Вт</p>
+                    <p>Форма вихідного сигналу: чиста синусоїда</p>
+                    <p>Підключення пристроїв: Розетка AC 230В(4), USB-A(2), USB-C(2), DC(2)</p>
+                    <p>Цикли зарядки: 4000</p>
+                    <p>Функція ДБЖ: є</p>
+                    <p>Дисплей: є</p>
+                    <p>Ліхтарик: немає</p>
+                    <p>Розміри: 398x200x284 мм</p>
+                    <p>Вага: 12,5 кг</p>
+                    <p>Де купити: <a href="https://hotline.ua/ua/mobile-zaryadnye-stancii/ecoflow-delta-3-eu-version/" target="_blank">Магазин</a></p>
+                </div>
+            `
+        ]
+    },
+    {
+        min: 1200, max: 1799,
+        items: [
+            `
+            <div class="system-card">
+                <h3>Зарядна станція EcoFlow DELTA 3 EU-Version</h3>
+                <img src="https://hotline.ua/img/tx/507/5070515245.jpg" alt="1800 Вт" />
+                <button class="Knipka">Докладніше про систему</button>
+                <div class="full-info hidden">
+                    <p>Повна назва: EcoFlow DELTA 3 EU-Version</p>
+                    <p>Потужність: 1800 Вт</p>
+                    <p>Ємність, Вт*год: 1024</p>
+                    <p>Потужність заряджання від розетки AC 230В, 1500 Вт</p>
+                    <p>Потужність зарядки від сонячної панелі, 500 Вт</p>
+                    <p>Форма вихідного сигналу: чиста синусоїда</p>
+                    <p>Підключення пристроїв: Розетка AC 230В(4), USB-A(2), USB-C(2), DC(2)</p>
+                    <p>Цикли зарядки: 4000</p>
+                    <p>Функція ДБЖ: є</p>
+                    <p>Дисплей: є</p>
+                    <p>Ліхтарик: немає</p>
+                    <p>Розміри: 398x200x284 мм</p>
+                    <p>Вага: 12,5 кг</p>
+                    <p>Де купити: <a href="https://hotline.ua/ua/mobile-zaryadnye-stancii/ecoflow-delta-3-eu-version/" target="_blank">Магазин</a></p>
+                </div>
+            `,
+            `
+            <div class="system-card">
+                <h3>Зарядна станція 2Е Syayvo 2400Вт</h3>
+                <img src="https://viatec.ua/upload/images/prod/2024-06/syayvo-2400w-2560wh2.webp" alt="2400 Вт" />
+                <button class="Knipka">Докладніше про систему</button>
+            <div class="full-info hidden">
+                    <p>Повна назва: 2Е Syayvo 2400Вт</p>
+                    <p>Потужність: 2400 Вт</p>
+                    <p>Ємність, Вт*год: 2560</p>
+                    <p>Потужність заряджання від розетки AC 230В, 2000 Вт</p>
+                    <p>Потужність зарядки від сонячної панелі, 400 Вт</p>
+                    <p>Форма вихідного сигналу: чиста синусоїда</p>
+                    <p>Підключення пристроїв: Розетка AC 230В(2), USB-A(4), USB-C(2), DC(1)</p>
+                    <p>Цикли зарядки: 2000</p>
+                    <p>Функція ДБЖ: є</p>
+                    <p>Дисплей: є</p>
+                    <p>Ліхтарик: є</p>
+                    <p>Розміри: 374х265х345 мм</p>
+                    <p>Вага: 26 кг</p>
+                    <p>Де купити: <a href="https://rozetka.com.ua/ua/411896082/p411896082/" target="_blank">Магазин</a></p>
+                </div>
+            </div>
+            `
+        ]
+    },
+    {
+        min: 1800, max: 2399,
+        items: [
+            `
+            <div class="system-card">
+                <h3>Зарядна станція 2Е Syayvo 2400Вт</h3>
+                <img src="https://viatec.ua/upload/images/prod/2024-06/syayvo-2400w-2560wh2.webp" alt="2400 Вт" />
+                <button class="Knipka">Докладніше про систему</button>
+            <div class="full-info hidden">
+                    <p>Повна назва: 2Е Syayvo 2400Вт</p>
+                    <p>Потужність: 2400 Вт</p>
+                    <p>Ємність, Вт*год: 2560</p>
+                    <p>Потужність заряджання від розетки AC 230В, 2000 Вт</p>
+                    <p>Потужність зарядки від сонячної панелі, 400 Вт</p>
+                    <p>Форма вихідного сигналу: чиста синусоїда</p>
+                    <p>Підключення пристроїв: Розетка AC 230В(2), USB-A(4), USB-C(2), DC(1)</p>
+                    <p>Цикли зарядки: 2000</p>
+                    <p>Функція ДБЖ: є</p>
+                    <p>Дисплей: є</p>
+                    <p>Ліхтарик: є</p>
+                    <p>Розміри: 374х265х345 мм</p>
+                    <p>Вага: 26 кг</p>
+                    <p>Де купити: <a href="https://rozetka.com.ua/ua/411896082/p411896082/" target="_blank">Магазин</a></p>
+                </div>
+            </div>
+            `,
+            `
+            <div class="system-card">
+                <h3>Інвертор MUST PV18-3224VPM + АКБ MUST LiFePO4 LP16-24100</h3>
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczNmlSRrngCb6NvkD432lopQhFoBt0AxdSKZRatdnAL2qNkyaHJb6bCiavxR6hAKEH6ovziR8Gtl1RTiA8HWzmG4KToRLG2u9UwhvCkvMSTSknAl6SNx36G-5J3tnQ8j-32mL2LJZrD3hVuiMIivUsOS=w626-h885-s-no?authuser=0" alt="3224 Вт" />
+            </div>
+            `
+        ]
+    },
+    {
+        min: 2400, max: 3199,
+        items: [
+            `
+            <div class="system-card">
+                <h3>Інвертор MUST PV18-3224VPM + АКБ MUST LiFePO4 LP16-24100</h3>
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczNmlSRrngCb6NvkD432lopQhFoBt0AxdSKZRatdnAL2qNkyaHJb6bCiavxR6hAKEH6ovziR8Gtl1RTiA8HWzmG4KToRLG2u9UwhvCkvMSTSknAl6SNx36G-5J3tnQ8j-32mL2LJZrD3hVuiMIivUsOS=w626-h885-s-no?authuser=0" alt="3224 Вт" />
+            </div>
+            `,
+            `
+            <div class="system-card">
+                <h3>Зарядна станція EcoFlow DELTA Pro 3600Вт</h3>
+                <img src="https://hotline.ua/img/tx/456/4567256225.jpg" alt="3600 Вт" />
+            </div>
+            `
+        ]
+    },
+    {
+        min: 3200, max: 3599,
+        items: [
+            `
+            <div class="system-card">
+                <h3>Зарядна станція EcoFlow DELTA Pro 3600Вт</h3>
+                <img src="https://hotline.ua/img/tx/456/4567256225.jpg" alt="3600 Вт" />
+            </div>
+            `,
+            `
+            <div class="system-card">
+                <h3>Інвертор 6 кВт Must PV19-6048 + АКБ Must LP16-48100</h3>
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczOlFHa5gWS5mfvj-hZBnMhTe10APcTcUJvrGiXerxkfRJsRbNN7-OZEJhsQevVHTU4KLf6KYUdVQA7hGrWTvD2np76wtWqcI1tq3B2FmPd-EY9f0TrSBpcUNBU9xtGIKHlFBOcRyAZb9o1pGu9hgAfg=w626-h885-s-no?authuser=0" alt="6000 Вт" />
+            </div>
+            `,
+            `
+            <div class="system-card">
+                <h3>Інвертор Deye SUN-6K-SG03LP1 + АКБ Deye SE-G5.1Pro-B</h3>
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczNksqOTU1vP_xopWg8YShEn6Po0lugRk0n43AlvX-EoGpu8odFj8REnj7dOTbyPAHqSTtCmE5JbtXULNy5A4RK_UoLl9HXWGfEqif9ttED9DK5UtnvmknjSFlT94ultDlLMYX7bj-qhvc4hx7SOtUI0=w626-h885-s-no?authuser=0" alt="6000 Вт" />
+            </div>
+            `
+        ]
+    },
+    {
+        min: 3600, max: 5999,
+        items: [
+            `
+            <div class="system-card">
+                <h3>Інвертор 6 кВт Must PV19-6048 + АКБ Must LP16-48100</h3>
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczOlFHa5gWS5mfvj-hZBnMhTe10APcTcUJvrGiXerxkfRJsRbNN7-OZEJhsQevVHTU4KLf6KYUdVQA7hGrWTvD2np76wtWqcI1tq3B2FmPd-EY9f0TrSBpcUNBU9xtGIKHlFBOcRyAZb9o1pGu9hgAfg=w626-h885-s-no?authuser=0" alt="6000 Вт" />
+            </div>
+            `,
+            `
+            <div class="system-card">
+                <h3>Інвертор Deye SUN-6K-SG03LP1 + АКБ Deye SE-G5.1Pro-B</h3>
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczN8Krp2ugyXPPviX1wVoPM4Z2KkLHWps23dXaSsfZPwT0AMtvPl7yJrGp-9TZJSr2MBTaEGWd2cynMzOsmMZ5-RQ81yx5eU9g97OA-U91K6Q9uL_SX8_605R3LcjJwiXTQFVO7JjGrC_jqUSUgZwPYI=w627-h885-s-no?authuser=0" alt="6000 Вт" />
+            </div>
+            `,
+            `
+            <div class="system-card">
+                <h3>Інвертор SUN-08K-SG01LP1 + АКБ Deye SE-G5.1Pro-B</h3>
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczP-1zZPLYsNUW3IOtlbecjTLY1Tj5KS9ZWY0nv_gTZcEQiYrskcMijALpGWNRgrLIF5kbSA1ItYqzZ-efrkMqtGn2Ld1Sa7-s4ollCYfu9lVY_kYbjaIPgq3Q-Qw61JnJtEOWjZXoj1uzW34cGX-4wD=w626-h885-s-no?authuser=0" alt="8000 Вт" />
+            </div>
+            `,
+            `
+            <div class="system-card">
+                <h3>Інвертор SUN-10K-SG04LP3 + АКБ Deye SE-G5.1Pro-B (2 шт.)</h3>
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczOU1bv_l6XvLcEk0kVA-DfJnFBRU9ciyGRb6kAQvXUJIafJuoWvDl_t6YKqm0at2jFydG0NayxQK5YpjxslNnzseo8XxvvNMAise_RfpqtF0RPtIy7hVex8uMJnKCxa_2hcfsIinavKEMQ5ypOf8zL7=w626-h885-s-no?authuser=0" alt="10000 Вт" />
+            </div>
+            `
+        ]
+    },
+    {
+        min: 6000, max: 10000,
+        items: [
+            `
+            <div class="system-card">
+                <h3>Інвертор SUN-08K-SG01LP1 + АКБ Deye SE-G5.1Pro-B</h3>
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczP-1zZPLYsNUW3IOtlbecjTLY1Tj5KS9ZWY0nv_gTZcEQiYrskcMijALpGWNRgrLIF5kbSA1ItYqzZ-efrkMqtGn2Ld1Sa7-s4ollCYfu9lVY_kYbjaIPgq3Q-Qw61JnJtEOWjZXoj1uzW34cGX-4wD=w626-h885-s-no?authuser=0" alt="8000 Вт" />
+            </div>
+            `,
+            `
+            <div class="system-card">
+                <h3>Інвертор SUN-10K-SG04LP3 + АКБ Deye SE-G5.1Pro-B (2 шт.)</h3>
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczOU1bv_l6XvLcEk0kVA-DfJnFBRU9ciyGRb6kAQvXUJIafJuoWvDl_t6YKqm0at2jFydG0NayxQK5YpjxslNnzseo8XxvvNMAise_RfpqtF0RPtIy7hVex8uMJnKCxa_2hcfsIinavKEMQ5ypOf8zL7=w626-h885-s-no?authuser=0" alt="10000 Вт" />
+            </div>
+            `
+        ]
+    },
+    {
+        min: 10001, max: 80000,
+        items: [
+            `
+            <div class="system-card">
+                <h3>Шукайте іншу систему 😢</h3>
+                <p>Навантаження надто велике.</p>
+                <img src="https://st2.depositphotos.com/4588599/10503/v/950/depositphotos_105035220-stock-illustration-ban-sign-red.jpg" alt="8000 Вт" />
+            </div>
+            `
+        ]
+    }
+];
+
+
+
+// Пошук підходящої системи
+let result = systems.find(s => power >= s.min && power <= s.max);
+
+// Контейнер для віконець
+const container = document.getElementById("systems");
+
+if (result) {
+    result.items.forEach(htmlBlock => {
+        // Створюємо елемент-картку з твого HTML
+        let temp = document.createElement("div");
+        temp.innerHTML = htmlBlock.trim();
+
+        // Знаходимо div.system-card всередині
+        let card = temp.querySelector(".system-card");
+
+        // Додаємо текст у цю картку
+        let info = document.createElement("p");
+        info.innerHTML = `Підходить для навантаження: <b>${power} Вт</b>`;
+        info.style.marginTop = "10px";
+        info.style.textAlign = "center";
+
+        card.appendChild(info);
+
+        // Додаємо картку на сторінку
+        container.appendChild(card);
+    });
+} else {
+    container.innerHTML = "<p class='no-systems'>Підходящих систем не знайдено.</p>";
+}
+// ===== JS для кнопок "Докладніше" =====
+document.querySelectorAll(".Knipka").forEach(button => {
+    button.addEventListener("click", () => {
+        const card = button.closest(".system-card");
+        const info = card.querySelector(".full-info");
+        if(info) info.classList.toggle("hidden");
+    });
+});
+</script>
+
+</body>
+</html>
+
