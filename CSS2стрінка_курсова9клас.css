@@ -23,7 +23,7 @@ body {
 .system-card {
     border: 2px solid #444;
     background: rgb(255, 255, 255);
-    width: 300px;
+    width: 310px;
     min-height: 300px;
     padding: 20px;
     border-radius: 12px;
@@ -55,3 +55,6 @@ body {
     font-size: 14px;
 }
 
+.p1 {
+    text-decoration: underline;
+}
